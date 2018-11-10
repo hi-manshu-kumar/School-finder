@@ -2,13 +2,13 @@ const express = require('express');
 const School = require('../models/school');
 const router = express.Router();
 
-router.get('/schools', (req,res,next )=>{
+router.get('/schools', (req,res,next )=>{   //28.589625 77.226484
     School.aggregate().near({
         near: {
             'type': 'Point',
             'coordinates': [parseFloat(req.query.lng), parseFloat(req.query.lat)]
         },
-        maxDistance: 10000,
+        maxDistance: 10000,     //distance is 10 thousand mtrs
         spherical: true,
         distanceField: 'dis'
     }).then(datas => res.send(datas)).catch(next);;

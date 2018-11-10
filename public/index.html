@@ -32,9 +32,9 @@
                 schools = schools.map(function(school, index){
                     return(
                         <li key={index}>
-                            <span>{index}</span>
+                            <span>{index+1}</span>
                             <span className="name">{school.name}</span>
-                            <span className="dist">{(school.dis/10000)}km</span>
+                            <span className="dist">{(school.dis/1000).toFixed(2)}km</span>
                             <span className="name">{school.address}</span>
                             <span className="name">{school.phoneNo}</span>
                             <span className="name">{school.yearFound}</span>
